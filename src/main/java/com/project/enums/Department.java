@@ -1,0 +1,22 @@
+package com.project.enums;
+
+public enum Department {
+	
+	ENGINEERING,
+    HUMAN_RESOURCES,
+    SALES,
+    MARKETING,
+    FINANCE,
+    OPERATIONS,
+    CUSTOMER_SERVICE,
+    LEGAL,
+    ADMINISTRATION,
+    IT_SUPPORT,
+    PRODUCT_MANAGEMENT,
+    BUSINESS_DEVELOPMENT,
+    DESIGN,
+    PROCUREMENT,
+    RESEARCH_AND_DEVELOPMENT,
+    OTHER
+	
+}

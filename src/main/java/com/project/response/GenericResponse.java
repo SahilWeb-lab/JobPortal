@@ -1,5 +1,9 @@
 package com.project.response;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -28,6 +32,8 @@ public class GenericResponse {
 	
 	private Object data;	// Displaying data
 	
+	private String timestamp;
+	
 	public ResponseEntity<?> create() {
 		Map<String, Object> map = new LinkedHashMap<>();
 		
@@ -37,7 +43,16 @@ public class GenericResponse {
 		if(!ObjectUtils.isEmpty(data)) {
 			map.put("data", data);
 		}
+		map.put("timestamp", getCurrentSystemTime());
 		
 		return new ResponseEntity<>(map, responseStatus);
 	}
+	
+	 private String getCurrentSystemTime() {
+	        // Gets system default timezone (e.g., Asia/Kolkata)
+	        LocalDateTime now = LocalDateTime.now(ZoneId.systemDefault());
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z");
+	        return now.atZone(ZoneId.systemDefault()).format(formatter);
+	    }
+	
 }
